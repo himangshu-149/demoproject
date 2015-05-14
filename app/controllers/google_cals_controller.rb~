@@ -1,0 +1,50 @@
+require "base64"
+class GoogleCalsController < ApplicationController
+	def index
+		create_header
+		#@header = Base64.urlsafe_encode64(@header.to_s)
+		@header = Base64.encode64(@header.to_s)
+
+		create_claim_set
+		@claim_set = Base64.urlsafe_encode64(@claim_set.to_s)
+		
+		create_ascii_arr("#{@header}.#{@claim_set}")
+		@sin_arr = Base64.urlsafe_encode64(@sin_arr.to_s)
+
+		create_grant_type
+		@grant_type = Base64.urlsafe_encode64(@grant_type.to_s)
+
+		@assertion = "#{@header}.#{@claim_set}.#{@sin_arr}"
+
+		render :text => "#{@grant_type}  <br> #{@header} <br> #{@claim_set} <br> #{@sin_arr} <br><br>#{@header}<br>eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9"
+	end
+
+	def create_header
+		#@header = {:alg => "RS256", :typ => "JWT"}
+		@header = {}
+		@header["alg"] = "RS256"
+		@header["typ"] = "JWT"
+		#@header = "{'alg':'RS256','typ':'JWT'}"
+	end
+
+	def create_claim_set
+		@claim_set = {
+		  :iss => "1086041807445-8vhabets2pea2q9vnhul9obqkcc185mt@developer.gserviceaccount.com",
+		  :scope => "https://www.googleapis.com/auth/calender",
+		  :aud => "https://www.googleapis.com/oauth2/v3/token",
+		  :exp => Time.now.to_i+3600,
+		  :iat => Time.now.to_i
+		}
+	end
+
+	def create_ascii_arr(key_str)
+		@sin_arr = []
+		key_str.each_byte do |c|
+		   @sin_arr<<c
+		end
+	end
+
+	def create_grant_type
+		@grant_type = {"urn" => "ietf", "params" => "oauth", "grant-type" => "jwt-bearer"}
+	end
+end

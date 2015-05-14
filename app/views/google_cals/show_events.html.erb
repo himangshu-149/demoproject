@@ -1,0 +1,24 @@
+<a href="/get_event_from_calendar" style="text-decoration:none;"><input type="button" value="Back"></a>
+<br/>
+<table border="1" cellpadding="0" cellspacing="0">
+	<tr>
+		<th>ID</th>
+		<th>Event</th>
+		<th>Organizer</th>
+		<th>Attendees</th>
+		<th>Start DateTime</th>
+		<th>End DateTime</th>
+	</tr>
+	<% if @events_hash.present? %>
+		<% @events_hash.each do |e| %>
+			<tr>
+				<td><%= e["id"] %></td>
+				<td><%= e["summary"] %></td>
+				<td><%= e["organizer"] %></td>
+				<td><%= e["attendees"] %></td>
+				<td><%= e["start_date_time"] %></td>
+				<td><%= e["end_date_time"] %></td>
+			</tr>
+		<% end %>
+	<% end %>
+</table>
