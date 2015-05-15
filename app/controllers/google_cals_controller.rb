@@ -165,7 +165,8 @@ class GoogleCalsController < ApplicationController
 		  'end' => {
 		    'dateTime' => params["end_date_time"] #put end time in here
 		  },
-		  'timeZone' => 'Asia/Calcutta', #put timezone here
+		  #'timeZone' => 'Asia/Calcutta', #put timezone here
+		  'timeZone' => 'America/Los Angeles', #put timezone here
 		  'attendees' => [
 		    {
 		      'email' => params["attendees_email"] #put attendees email here
