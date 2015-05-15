@@ -10,6 +10,7 @@ GoogleCal::Application.routes.draw do
   post "insert_new_event" => "google_cals#insert_new_event"
   get "get_event_from_calendar" => "google_cals#get_event_from_calendar"
   post "show_events" => "google_cals#show_events"
+  post "get_free_busy_events" => "google_cals#get_free_busy_events"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

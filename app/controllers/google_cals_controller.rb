@@ -194,8 +194,9 @@ class GoogleCalsController < ApplicationController
 		client.authorization = asserter.authorize
 		service = client.discovered_api('calendar', 'v3')
 		@result = client.execute(:api_method => service.events.list,
-					#:parameters => {'calendarId' => 'bitcanny.com_u0d9opn8gub185aie6sr3rujqc@group.calendar.google.com'},
-					:parameters => {'calendarId' => 'primary'},
+					#:parameters => {'calendarId' => 'onlinesd.1986@gmail.com'},
+					:parameters => {'calendarId' => params["calendarId"]},
+					#:parameters => {'calendarId' => 'primary'},
 					:headers => {'Content-Type' => 'application/json'})
 
 		########################## Fetching event list ######################################
@@ -205,25 +206,74 @@ class GoogleCalsController < ApplicationController
 		while true
 			events = @result.data.items
 			events.each do |e|
-				if e.attendees.collect {|e| e.email}.join(",").include?(params["calendarId"])
+				#if e.attendees.collect {|e| e.email}.join(",").include?(params["calendarId"])
 					logger.info "====#{e.summary}\n"
 					_temp = {}
 					_temp["id"] = e.iCalUID
-					_temp["summary"] = e.summary
-					_temp["organizer"] = e.organizer.email
-					_temp["attendees"] = e.attendees.collect {|e| e.email}.join(",")
-					_temp["start_date_time"] = e.start.dateTime
-					_temp["end_date_time"] = e.end.dateTime
+					_temp["summary"] = e.summary.present? ? e.summary : ""
+					_temp["organizer"] = e.organizer.present? ? e.organizer.email : ""
+					_temp["attendees"] = e.attendees.present? ? e.attendees.collect {|e| e.email}.join(",") : ""
+					_temp["start_date_time"] = e.start.present? ? e.start.dateTime : ""
+					_temp["end_date_time"] = e.end.present? ? e.end.dateTime : ""
 					@events_hash << _temp
-				end
+				#end
 			end
 			if !(page_token = @result.data.next_page_token)
 				break
 			end
 			@result = client.execute(:api_method => service.events.list,
-					  :parameters => {'calendarId' => 'primary',
+					  :parameters => {'calendarId' => params["calendarId"],
 					                  'pageToken' => page_token})
 		end
+	end
+
+	def get_free_busy_events
+		key = Google::APIClient::KeyUtils.load_from_pkcs12('rentlycalendar-7bbc7ed53b98.p12', 'notasecret')
+		client = Google::APIClient.new({:application_name => "rentlycalendar"})
+		asserter = Google::APIClient::JWTAsserter.new(
+		   '361602138933-vi8o9uv855ms8ophdklv2l1gci3udk9g@developer.gserviceaccount.com',
+		   'https://www.googleapis.com/auth/calendar', 
+		   key)
+		client.authorization = asserter.authorize
+		service = client.discovered_api('calendar', 'v3')
+		@result = client.execute(
+					:api_method => service.freebusy.query,
+					#:parameters => {'calendarId' => 'onlinesd.1986@gmail.com'},
+					:body => JSON.dump({
+					    :timeMin => Time.now,
+					    :timeMax => Time.now + 8.days,
+					    :items => [{
+					    	:id => params["calendarId"]
+					    	}]
+					}),
+					#:parameters => {'calendarId' => 'primary'},
+					:headers => {'Content-Type' => 'application/json'})
+=begin
+		page_token = nil
+		@events_hash = []
+		while true
+			events = @result.data.items
+			events.each do |e|
+				#if e.attendees.collect {|e| e.email}.join(",").include?(params["calendarId"])
+					logger.info "====#{e.summary}\n"
+					_temp = {}
+					_temp["id"] = e.iCalUID
+					_temp["summary"] = e.summary.present? ? e.summary : ""
+					_temp["organizer"] = e.organizer.present? ? e.organizer.email : ""
+					_temp["attendees"] = e.attendees.present? ? e.attendees.collect {|e| e.email}.join(",") : ""
+					_temp["start_date_time"] = e.start.present? ? e.start.dateTime : ""
+					_temp["end_date_time"] = e.end.present? ? e.end.dateTime : ""
+					@events_hash << _temp
+				#end
+			end
+			if !(page_token = @result.data.next_page_token)
+				break
+			end
+			@result = client.execute(:api_method => service.events.list,
+					  :parameters => {'calendarId' => params["calendarId"],
+					                  'pageToken' => page_token})
+		end
+=end
 	end
 
 	def create_header

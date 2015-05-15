@@ -1,5 +1,16 @@
-<form method="post" accept-charset="UTF-8" action="/show_events">
+<form method="post" accept-charset="UTF-8" action="" id="show_events_form">
 	Calendar ID:<input type="text" name="calendarId"/><br/>
-	<input type="hidden" name="ctz" value="Asia/Calcutta">
-	<input type="submit" value="Show"/>
+	<input type="button" value="Show" onclick="show_all_events()"/>&nbsp;&nbsp;<input type="button" value="Show Free/Busy Schedules" onclick="show_free_busy()"/>
 </form>
+<script>
+		function show_free_busy()
+		{
+			document.getElementById("show_events_form").setAttribute("action", "/get_free_busy_events");
+			document.getElementById("show_events_form").submit();
+		}
+		function show_all_events()
+		{
+			document.getElementById("show_events_form").setAttribute("action", "/show_events");
+			document.getElementById("show_events_form").submit();
+		}
+</script>
