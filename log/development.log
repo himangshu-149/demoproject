@@ -10192,3 +10192,456 @@ Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-23 03:44:15 
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-23 03:44:15 -0700
+
+
+Started GET "/get_event_from_calendar" for 127.0.0.1 at 2015-05-23 04:05:08 -0700
+Processing by GoogleCalsController#get_event_from_calendar as HTML
+  Rendered google_cals/get_event_from_calendar.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 49ms (Views: 41.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/get_event_from_calendar" for 127.0.0.1 at 2015-05-23 04:05:10 -0700
+Processing by GoogleCalsController#get_event_from_calendar as HTML
+  Rendered google_cals/get_event_from_calendar.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-23 04:05:10 -0700
+
+
+Started GET "/assets/google_cals.css?body=1" for 127.0.0.1 at 2015-05-23 04:05:10 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-23 04:05:10 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-05-23 04:05:10 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-23 04:05:10 -0700
+
+
+Started GET "/assets/google_cals.js?body=1" for 127.0.0.1 at 2015-05-23 04:05:10 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-23 04:05:10 -0700
+
+
+Started POST "/show_events" for 127.0.0.1 at 2015-05-23 04:05:13 -0700
+Processing by GoogleCalsController#show_events as HTML
+  Parameters: {"calendarId"=>"1g19mstsr2db8ol03p2d5ro874@group.calendar.google.com"}
+Can't verify CSRF token authenticity
+====
+
+====
+
+====Appointment at Somewhere
+
+  Rendered google_cals/show_events.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 4177ms (Views: 7.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-23 04:05:17 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-23 04:05:17 -0700
+
+
+Started GET "/assets/google_cals.css?body=1" for 127.0.0.1 at 2015-05-23 04:05:17 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-05-23 04:05:17 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-23 04:05:17 -0700
+
+
+Started GET "/assets/google_cals.js?body=1" for 127.0.0.1 at 2015-05-23 04:05:17 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-23 04:05:17 -0700
+
+
+Started GET "/get_event_from_calendar" for 127.0.0.1 at 2015-05-23 04:05:47 -0700
+Processing by GoogleCalsController#get_event_from_calendar as HTML
+  Rendered google_cals/get_event_from_calendar.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/show_events" for 127.0.0.1 at 2015-05-23 04:05:50 -0700
+Processing by GoogleCalsController#show_events as HTML
+  Parameters: {"calendarId"=>"1g19mstsr2db8ol03p2d5ro874@group.calendar.google.com"}
+Can't verify CSRF token authenticity
+====
+
+====
+
+====Appointment at Somewhere
+
+  Rendered google_cals/show_events.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 5492ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-23 04:05:55 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-23 04:05:55 -0700
+
+
+Started GET "/assets/google_cals.js?body=1" for 127.0.0.1 at 2015-05-23 04:05:55 -0700
+
+
+Started GET "/assets/google_cals.css?body=1" for 127.0.0.1 at 2015-05-23 04:05:55 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-05-23 04:05:55 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-23 04:05:55 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-23 04:05:55 -0700
+
+
+Started GET "/delete_event?event_id=nocnlf1loebhm362rv1s3n5n70&calendarId=1g19mstsr2db8ol03p2d5ro874@group.calendar.google.com" for 127.0.0.1 at 2015-05-23 04:05:58 -0700
+Processing by GoogleCalsController#delete_event as HTML
+  Parameters: {"event_id"=>"nocnlf1loebhm362rv1s3n5n70", "calendarId"=>"1g19mstsr2db8ol03p2d5ro874@group.calendar.google.com"}
+  Rendered google_cals/delete_event.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 8624ms (Views: 11.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/get_event_from_calendar" for 127.0.0.1 at 2015-05-23 04:06:14 -0700
+Processing by GoogleCalsController#get_event_from_calendar as HTML
+  Rendered google_cals/get_event_from_calendar.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-23 04:06:14 -0700
+
+
+Started GET "/assets/google_cals.css?body=1" for 127.0.0.1 at 2015-05-23 04:06:14 -0700
+
+
+Started GET "/assets/google_cals.js?body=1" for 127.0.0.1 at 2015-05-23 04:06:14 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-23 04:06:14 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-23 04:06:14 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-05-23 04:06:14 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-23 04:06:14 -0700
+
+
+Started POST "/show_events" for 127.0.0.1 at 2015-05-23 04:06:16 -0700
+Processing by GoogleCalsController#show_events as HTML
+  Parameters: {"calendarId"=>"1g19mstsr2db8ol03p2d5ro874@group.calendar.google.com"}
+Can't verify CSRF token authenticity
+====
+
+====Appointment at Somewhere
+
+  Rendered google_cals/show_events.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 4855ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-23 04:06:21 -0700
+
+
+Started GET "/assets/google_cals.css?body=1" for 127.0.0.1 at 2015-05-23 04:06:21 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-05-23 04:06:21 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-23 04:06:21 -0700
+
+
+Started GET "/assets/google_cals.js?body=1" for 127.0.0.1 at 2015-05-23 04:06:21 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-23 04:06:21 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-23 04:06:21 -0700
+
+
+Started GET "/edit_event_details?event_id=prn957be8mkv8q00cro4cdivps&calendarId=1g19mstsr2db8ol03p2d5ro874@group.calendar.google.com" for 127.0.0.1 at 2015-05-23 04:06:25 -0700
+Processing by GoogleCalsController#edit_event_details as HTML
+  Parameters: {"event_id"=>"prn957be8mkv8q00cro4cdivps", "calendarId"=>"1g19mstsr2db8ol03p2d5ro874@group.calendar.google.com"}
+  Rendered google_cals/edit_event_details.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 8332ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/get_event_from_calendar" for 127.0.0.1 at 2015-05-23 04:06:37 -0700
+Processing by GoogleCalsController#get_event_from_calendar as HTML
+  Rendered google_cals/get_event_from_calendar.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/show_events" for 127.0.0.1 at 2015-05-23 04:06:40 -0700
+Processing by GoogleCalsController#show_events as HTML
+  Parameters: {"calendarId"=>"1g19mstsr2db8ol03p2d5ro874@group.calendar.google.com"}
+Can't verify CSRF token authenticity
+====Appointment at Somewhere
+
+====Appointment at Somewhere
+
+  Rendered google_cals/show_events.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 4011ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-23 04:06:44 -0700
+
+
+Started GET "/assets/google_cals.css?body=1" for 127.0.0.1 at 2015-05-23 04:06:44 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-05-23 04:06:44 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-23 04:06:44 -0700
+
+
+Started GET "/assets/google_cals.js?body=1" for 127.0.0.1 at 2015-05-23 04:06:44 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-23 04:06:44 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-23 04:06:44 -0700
+
+
+Started GET "/get_event_from_calendar" for 127.0.0.1 at 2015-05-23 04:07:15 -0700
+Processing by GoogleCalsController#get_event_from_calendar as HTML
+  Rendered google_cals/get_event_from_calendar.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-23 04:07:20 -0700
+Processing by GoogleCalsController#index as HTML
+  Rendered google_cals/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-23 04:07:20 -0700
+
+
+Started GET "/assets/google_cals.css?body=1" for 127.0.0.1 at 2015-05-23 04:07:20 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-23 04:07:20 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-23 04:07:20 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-05-23 04:07:20 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-23 04:07:20 -0700
+
+
+Started GET "/assets/google_cals.js?body=1" for 127.0.0.1 at 2015-05-23 04:07:20 -0700
+
+
+Started POST "/insert_new_event" for 127.0.0.1 at 2015-05-23 04:08:44 -0700
+Processing by GoogleCalsController#insert_new_event as HTML
+  Parameters: {"summary"=>"", "location"=>"", "start_date_time"=>"2015-05-24T10:10:00.000+05:30", "end_date_time"=>"2015-05-24T13:10:00.000+05:30", "attendees_email"=>"1g19mstsr2db8ol03p2d5ro874@group.calendar.google.com"}
+Can't verify CSRF token authenticity
+Redirected to http://localhost:4000/
+Completed 302 Found in 4423ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-23 04:08:49 -0700
+Processing by GoogleCalsController#index as HTML
+  Rendered google_cals/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-23 04:08:49 -0700
+
+
+Started GET "/assets/google_cals.css?body=1" for 127.0.0.1 at 2015-05-23 04:08:49 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-05-23 04:08:49 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-23 04:08:49 -0700
+
+
+Started GET "/assets/google_cals.js?body=1" for 127.0.0.1 at 2015-05-23 04:08:49 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-23 04:08:49 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-23 04:08:49 -0700
+
+
+Started GET "/get_event_from_calendar" for 127.0.0.1 at 2015-05-23 04:08:54 -0700
+Processing by GoogleCalsController#get_event_from_calendar as HTML
+  Rendered google_cals/get_event_from_calendar.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-23 04:08:54 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-05-23 04:08:54 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-23 04:08:54 -0700
+
+
+Started GET "/assets/google_cals.css?body=1" for 127.0.0.1 at 2015-05-23 04:08:54 -0700
+
+
+Started GET "/assets/google_cals.js?body=1" for 127.0.0.1 at 2015-05-23 04:08:54 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-23 04:08:54 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-23 04:08:54 -0700
+
+
+Started POST "/insert_new_event" for 127.0.0.1 at 2015-05-23 04:09:40 -0700
+Processing by GoogleCalsController#insert_new_event as HTML
+  Parameters: {"summary"=>"", "location"=>"", "start_date_time"=>"2015-05-26T10:10:00.000+05:30", "end_date_time"=>"2015-05-26T13:10:00.000+05:30", "attendees_email"=>"1g19mstsr2db8ol03p2d5ro874@group.calendar.google.com"}
+Can't verify CSRF token authenticity
+Redirected to http://localhost:4000/
+Completed 302 Found in 4507ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-23 04:09:44 -0700
+Processing by GoogleCalsController#index as HTML
+  Rendered google_cals/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-23 04:09:45 -0700
+
+
+Started GET "/assets/google_cals.css?body=1" for 127.0.0.1 at 2015-05-23 04:09:45 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-23 04:09:45 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-23 04:09:45 -0700
+
+
+Started GET "/assets/google_cals.js?body=1" for 127.0.0.1 at 2015-05-23 04:09:45 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-05-23 04:09:45 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-23 04:09:45 -0700
+
+
+Started POST "/insert_new_event" for 127.0.0.1 at 2015-05-23 04:10:05 -0700
+Processing by GoogleCalsController#insert_new_event as HTML
+  Parameters: {"summary"=>"", "location"=>"", "start_date_time"=>"2015-05-27T10:10:00.000+05:30", "end_date_time"=>"2015-05-28T13:10:00.000+05:30", "attendees_email"=>"1g19mstsr2db8ol03p2d5ro874@group.calendar.google.com"}
+Can't verify CSRF token authenticity
+Redirected to http://localhost:4000/
+Completed 302 Found in 4231ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-23 04:10:09 -0700
+Processing by GoogleCalsController#index as HTML
+  Rendered google_cals/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-23 04:10:09 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-05-23 04:10:09 -0700
+
+
+Started GET "/assets/google_cals.css?body=1" for 127.0.0.1 at 2015-05-23 04:10:09 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-23 04:10:09 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-23 04:10:09 -0700
+
+
+Started GET "/assets/google_cals.js?body=1" for 127.0.0.1 at 2015-05-23 04:10:09 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-23 04:10:09 -0700
+
+
+Started GET "/get_event_from_calendar" for 127.0.0.1 at 2015-05-23 04:10:14 -0700
+Processing by GoogleCalsController#get_event_from_calendar as HTML
+  Rendered google_cals/get_event_from_calendar.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/google_cals.css?body=1" for 127.0.0.1 at 2015-05-23 04:10:14 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-23 04:10:14 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-23 04:10:14 -0700
+
+
+Started GET "/assets/google_cals.js?body=1" for 127.0.0.1 at 2015-05-23 04:10:14 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-05-23 04:10:14 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-23 04:10:14 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-23 04:10:14 -0700
+
+
+Started POST "/show_events" for 127.0.0.1 at 2015-05-23 04:10:54 -0700
+Processing by GoogleCalsController#show_events as HTML
+  Parameters: {"calendarId"=>"1g19mstsr2db8ol03p2d5ro874@group.calendar.google.com"}
+Can't verify CSRF token authenticity
+====Appointment at Somewhere
+
+====Appointment at Somewhere
+
+====
+
+====
+
+====
+
+  Rendered google_cals/show_events.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 3898ms (Views: 12.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-23 04:10:58 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-23 04:10:58 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-05-23 04:10:58 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-23 04:10:58 -0700
+
+
+Started GET "/assets/google_cals.css?body=1" for 127.0.0.1 at 2015-05-23 04:10:58 -0700
+
+
+Started GET "/assets/google_cals.js?body=1" for 127.0.0.1 at 2015-05-23 04:10:58 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-23 04:10:58 -0700

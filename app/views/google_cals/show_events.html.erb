@@ -22,7 +22,7 @@
 				<td><%= e["start_date_time"] %></td>
 				<td><%= e["end_date_time"] %></td>
 				<td>
-					<a href="javascript:void(0);" class="edit_event_link">Edit</a> | <a class="delete_event_link" href="javascript:void(0);">Delete</a>
+					<a href="/edit_event_details?event_id=<%= e["id"] %>&calendarId=<%= params["calendarId"] %>" class="edit_event_link">Edit</a> | <a class="delete_event_link" href="/delete_event?event_id=<%= e["id"] %>&calendarId=<%= params["calendarId"] %>">Delete</a>
 				</td>
 			</tr>
 		<% end %>
@@ -34,7 +34,7 @@
 ****************************************************************
 <div id="success_div"></div>
 <script type="text/javascript">
-	$(document).ready(function(){
+	/*$(document).ready(function(){
 		console.log("jquery present");
 		$(".delete_event_link").click(function(){
 			event_id = $.trim($(this).parent().parent().find("td:eq(1)").text());
@@ -51,5 +51,5 @@
 			event_id = $.trim($(this).parent().parent().find("td:eq(1)").text());
 			location.href = "/edit_event_details?event_id="+event_id+"&calendarId=<%= params["calendarId"] %>";
 		});
-	});
+	});*/
 </script>
