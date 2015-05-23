@@ -2,23 +2,54 @@
 <br/>
 <table border="1" cellpadding="0" cellspacing="0">
 	<tr>
+		<th>&nbsp;</th>
 		<th>ID</th>
 		<th>Event</th>
 		<th>Organizer</th>
 		<th>Attendees</th>
 		<th>Start DateTime</th>
 		<th>End DateTime</th>
+		<th>Action</th>
 	</tr>
 	<% if @events_hash.present? %>
-		<% @events_hash.each do |e| %>
+		<% @events_hash.each_with_index do |e,index| %>
 			<tr>
+				<td><%= index+1 %></td>
 				<td><%= e["id"] %></td>
 				<td><%= e["summary"] %></td>
 				<td><%= e["organizer"] %></td>
 				<td><%= e["attendees"] %></td>
 				<td><%= e["start_date_time"] %></td>
 				<td><%= e["end_date_time"] %></td>
+				<td>
+					<a href="javascript:void(0);" class="edit_event_link">Edit</a> | <a class="delete_event_link" href="javascript:void(0);">Delete</a>
+				</td>
 			</tr>
 		<% end %>
 	<% end %>
 </table>
+<%= debug @result.data.items %>
+////////////////////////////////////////////////////////////////
+<%= debug @event %>
+****************************************************************
+<div id="success_div"></div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		console.log("jquery present");
+		$(".delete_event_link").click(function(){
+			event_id = $.trim($(this).parent().parent().find("td:eq(1)").text());
+			$.ajax({
+				method: "POST",
+				url: "/delete_event",
+				data: "event_id="+event_id+"&calendarId=<%= params["calendarId"] %>",
+				success: function(msg){
+					$("#success_div").html(msg);
+				}
+			});
+		});
+		$(".edit_event_link").click(function(){
+			event_id = $.trim($(this).parent().parent().find("td:eq(1)").text());
+			location.href = "/edit_event_details?event_id="+event_id+"&calendarId=<%= params["calendarId"] %>";
+		});
+	});
+</script>

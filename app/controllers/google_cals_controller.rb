@@ -193,6 +193,7 @@ class GoogleCalsController < ApplicationController
 		   key)
 		client.authorization = asserter.authorize
 		service = client.discovered_api('calendar', 'v3')
+
 		@result = client.execute(:api_method => service.events.list,
 					#:parameters => {'calendarId' => 'onlinesd.1986@gmail.com'},
 					:parameters => {'calendarId' => params["calendarId"]},
@@ -209,7 +210,7 @@ class GoogleCalsController < ApplicationController
 				#if e.attendees.collect {|e| e.email}.join(",").include?(params["calendarId"])
 					logger.info "====#{e.summary}\n"
 					_temp = {}
-					_temp["id"] = e.iCalUID
+					_temp["id"] = e.id
 					_temp["summary"] = e.summary.present? ? e.summary : ""
 					_temp["organizer"] = e.organizer.present? ? e.organizer.email : ""
 					_temp["attendees"] = e.attendees.present? ? e.attendees.collect {|e| e.email}.join(",") : ""
@@ -224,7 +225,21 @@ class GoogleCalsController < ApplicationController
 			@result = client.execute(:api_method => service.events.list,
 					  :parameters => {'calendarId' => params["calendarId"],
 					                  'pageToken' => page_token})
+
+			
+			
 		end
+=begin
+		client.execute(:api_method => service.events.delete,
+                        :parameters => {'calendarId' => params["calendarId"], 'eventId' => "1qv6u058kl6nuqr1rri4le2388"})
+        r = client.execute(:api_method => service.events.delete,
+                        :parameters => {'calendarId' => params["calendarId"], 'eventId' => 'ftk5gc01bcf623aljsi47ssgn0'})
+		client.execute(:api_method => service.events.delete,
+                        :parameters => {'calendarId' => "primary", 'eventId' => 'ftk5gc01bcf623aljsi47ssgn0'})
+		client.execute(:api_method => service.events.delete,
+                        :parameters => {'calendarId' => "onlinesd.1986@gmail.com", 'eventId' => 'ftk5gc01bcf623aljsi47ssgn0'})
+		@event = r.data
+=end
 	end
 
 	def get_free_busy_events
@@ -274,6 +289,55 @@ class GoogleCalsController < ApplicationController
 					                  'pageToken' => page_token})
 		end
 =end
+	end
+
+	def edit_event_details
+		if params[:event_id].present? and params[:calendarId].present?
+			key = Google::APIClient::KeyUtils.load_from_pkcs12('rentlycalendar-7bbc7ed53b98.p12', 'notasecret')
+			client = Google::APIClient.new({:application_name => "rentlycalendar"})
+			asserter = Google::APIClient::JWTAsserter.new(
+			   '361602138933-vi8o9uv855ms8ophdklv2l1gci3udk9g@developer.gserviceaccount.com',
+			   'https://www.googleapis.com/auth/calendar', 
+			   key)
+			client.authorization = asserter.authorize
+			service = client.discovered_api('calendar', 'v3')
+			@event_details = client.execute(:api_method => service.events.get,
+                        :parameters => {'calendarId' => params["calendarId"], 'eventId' => params["event_id"]})
+			event = @event_details.data
+			event.summary = 'Appointment at Somewhere'
+			client.execute(:api_method => service.events.update,
+                        :parameters => {'calendarId' => params["calendarId"], 'eventId' => event.id},
+                        :body_object => event,
+                        :headers => {'Content-Type' => 'application/json'})
+			@event_details = client.execute(:api_method => service.events.get,
+                        :parameters => {'calendarId' => params["calendarId"], 'eventId' => params["event_id"]})
+
+			#logger.info ">>>>>>>>>event_details>>>>>#{@event_details.data.id}>>>#{@event_details.data.creator.email}>>>>>>>>>>>>>>>>.."
+		end
+	end
+
+	def delete_event
+		if params[:event_id].present?
+			key = Google::APIClient::KeyUtils.load_from_pkcs12('rentlycalendar-7bbc7ed53b98.p12', 'notasecret')
+			client = Google::APIClient.new({:application_name => "rentlycalendar"})
+			asserter = Google::APIClient::JWTAsserter.new(
+			   '361602138933-vi8o9uv855ms8ophdklv2l1gci3udk9g@developer.gserviceaccount.com',
+			   'https://www.googleapis.com/auth/calendar', 
+			   key)
+			client.authorization = asserter.authorize
+			service = client.discovered_api('calendar', 'v3')
+			@event_details = client.execute(:api_method => service.events.get,
+                        :parameters => {'calendarId' => params["calendarId"], 'eventId' => params["event_id"]})
+			#logger.info ">>>>>>>>>event_details>>>>>#{@event_details.data.id}>>>#{@event_details.data.creator.email}>>>>>>>>>>>>>>>>.."
+#=begin
+			client.execute(:api_method => service.events.delete,
+                        :parameters => {'calendarId' => params["calendarId"], 'eventId' => params["event_id"]})
+			client.execute(:api_method => service.events.delete,
+	                        :parameters => {'calendarId' => "primary", 'eventId' => params["event_id"]})
+			client.execute(:api_method => service.events.delete,
+                        :parameters => {'calendarId' => "#{@event_details.data.creator.email}", 'eventId' => params["event_id"]})
+#=end
+		end
 	end
 
 	def create_header
